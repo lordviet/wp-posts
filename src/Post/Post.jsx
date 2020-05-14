@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import StringExtended from 'string';
 import axios from 'axios';
 import './Post.css';
 
@@ -21,14 +22,20 @@ export default class Post extends Component {
     render() {
         const { post, hasLoaded } = this.state;
         if (hasLoaded) {
-            console.log(post);
-            const name = post._embedded.author[0].name;
-            console.log(name);
+            console.log(post.content.rendered);
         }
         return (
-            <div>
-                <h1>Post title</h1>
-            </div>
-        )
+            <Fragment>
+                {hasLoaded ?
+                    <div className="post">
+                        <h1>{StringExtended(post.title.rendered).unescapeHTML().s}</h1>
+                        <small>Written by {post._embedded.author[0].name} / {new Date(post.date).toUTCString()}</small>
+                        <img src={post.jetpack_featured_media_url} alt="post" />
+                        <p dangerouslySetInnerHTML={{ __html: post.content.rendered }}></p>
+                    </div> :
+                    <div>Loading...</div>
+                }
+            </Fragment>
+        );
     }
 }

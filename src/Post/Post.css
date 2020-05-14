@@ -1,0 +1,40 @@
+.post {
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+    width: 50em;
+    text-align: left;
+    /* border: 2px solid red; */
+}
+
+.post>h1 {
+    /* text-align: center; */
+}
+
+.post>img {
+    width: 50em;
+    margin: 2em auto;
+}
+
+.post>p {
+    /* Negate oveflow from pulled content */
+    overflow-x: hidden;
+}
+
+/* Embeded images from articles */
+
+.post>p img {
+    height: auto;
+    width: 500px;
+    /* width: 50em; */
+    /* display: none; */
+    margin: 2em auto;
+}
+
+/* Embeded videos from articles */
+
+.post>p video {
+    width: 500px;
+    height: 500px;
+    /* display: none; */
+}
