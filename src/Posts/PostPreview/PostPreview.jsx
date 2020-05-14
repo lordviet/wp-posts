@@ -3,9 +3,7 @@ import './PostPreview.css';
 import StringExtended from 'string';
 import { Link } from 'react-router-dom';
 
-function PostPreview(props) {
-    const { title, excerpt, thumbnail, postId } = props;
-    
+function PostPreview({ title, excerpt, thumbnail, postId }) {
     return (
         <div className="post-preview">
             <div className="post-preview-info">
