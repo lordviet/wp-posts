@@ -10,6 +10,7 @@ export default function PostPreview({ title, excerpt, thumbnail, postId }) {
                 <h3>{StringExtended(title).unescapeHTML().s}</h3>
                 <p dangerouslySetInnerHTML={{ __html: excerpt }}></p>
             </div>
+            {/* Using <picture> to avoid reflow on image load*/}
             <picture>
                 <source media="(min-width: 327px)"
                     type="image/jpeg" srcSet={thumbnail} />

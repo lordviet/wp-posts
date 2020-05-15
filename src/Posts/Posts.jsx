@@ -9,7 +9,8 @@ export default class Posts extends Component {
     state = {
         posts: [],
         hasLoaded: false,
-        nextPage: 1
+        // the first page to be loaded
+        nextPage: 1 
     }
 
     componentDidMount() {
@@ -22,7 +23,6 @@ export default class Posts extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        // moreLoaded in state to show a loader?
         if (prevState.nextPage !== this.state.nextPage) {
             axios.get(`/wp-json/wp/v2/posts?post_type=post&count=10&page=${this.state.nextPage}`)
                 .then(res => this.setState({
@@ -33,6 +33,7 @@ export default class Posts extends Component {
         }
     }
 
+    // Change the next page to be loaded on click
     loadMoreOnClick = () => { this.setState({ nextPage: this.state.nextPage + 1 }) }
 
     render() {
@@ -53,7 +54,6 @@ export default class Posts extends Component {
                         <button onClick={this.loadMoreOnClick}> Load More </button>
                     </Fragment> :
                     <Loader />
-                    // <h3>Loading...</h3>
                 }
             </div>
         );

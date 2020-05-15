@@ -7,6 +7,7 @@ export default function Post({ title, authorName, date, img, content }) {
         <div className="post">
             <h1>{StringExtended(title).unescapeHTML().s}</h1>
             <small>Written by {authorName} / {new Date(date).toUTCString()}</small>
+            {/* Using <picture> to avoid reflow on image load*/}
             <picture>
                 <source media="(min-width: 327px)"
                     type="image/jpeg" srcSet={img} />
