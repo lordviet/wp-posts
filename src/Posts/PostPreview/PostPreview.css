@@ -1,11 +1,33 @@
-.post-preview{
-    border: 2px solid red;
+.post-preview {
+    border: 2px solid #ddd;
     display: flex;
     width: 800px;
     border-radius: 7px;
     margin: 2em auto;
+    padding: 1em;
+    text-decoration: none;
+    color: #000;
+    background: #fff;
+    align-items: center;
+    transition: all .15s ease-in-out;
 }
 
-.post-preview > img{
-    width: 280px;
+.post-preview:hover {
+    transform: scale(1.05);
+    color: #663399;
+}
+
+.post-preview-info {
+    margin: 0.8em;
+}
+
+.post-preview-info>p {
+    text-align: left;
+    color: #808080;
+}
+
+.post-preview>picture>img {
+    object-fit: cover;
+    border: 2px solid #ddd;
+    border-radius: 7px;
 }
