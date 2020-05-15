@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Post from '../Post/Post';
+import Loader from '../Loader/Loader';
 
 export default class PostScroll extends Component {
   state = {
@@ -41,7 +42,7 @@ export default class PostScroll extends Component {
           dataLength={posts.length}
           next={this.fetchMoreData}
           hasMore={true}
-          loader={<h3>Loading...</h3>}>
+          loader={<Loader/>}>
           {posts.map(p => (
             <Post
               key={p.id}

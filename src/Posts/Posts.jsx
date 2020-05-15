@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import './Posts.css';
 import PostPreview from './PostPreview/PostPreview';
+import Loader from '../Loader/Loader';
 
 
 export default class Posts extends Component {
@@ -51,7 +52,8 @@ export default class Posts extends Component {
                         ))}
                         <button onClick={this.loadMoreOnClick}> Load More </button>
                     </Fragment> :
-                    <h3>Loading...</h3>
+                    <Loader />
+                    // <h3>Loading...</h3>
                 }
             </div>
         );
