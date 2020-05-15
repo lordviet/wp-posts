@@ -1,3 +1,16 @@
-.posts{
-    border: 2px solid blue;
+.posts > button{
+    margin-bottom: 2em;
+    background-color: #663399;
+    border-radius: 7px;
+    width: 8em;
+    border: none;
+    color: #fff;
+    padding: 1em .7em;
+    text-align: center;
+    font-size: 1em;
+}
+
+.posts > button:hover{
+    cursor: pointer;
+    outline: none;
 }

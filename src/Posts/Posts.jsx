@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import './Posts.css';
 import PostPreview from './PostPreview/PostPreview';
@@ -36,23 +36,24 @@ export default class Posts extends Component {
 
     render() {
         const { posts, hasLoaded } = this.state;
-
         return (
             <div className="posts">
                 {hasLoaded ?
-                    posts.map(p => (
-                        <PostPreview
-                            key={p.id}
-                            postId={p.id}
-                            title={p.title.rendered}
-                            excerpt={p.excerpt.rendered}
-                            thumbnail={p.jetpack_featured_media_url}
-                        />
-                    )) :
-                    <div>Loading...</div>}
-                <button onClick={this.loadMoreOnClick}> Load More </button>
+                    <Fragment>
+                        {posts.map(p => (
+                            <PostPreview
+                                key={p.id}
+                                postId={p.id}
+                                title={p.title.rendered}
+                                excerpt={p.excerpt.rendered}
+                                thumbnail={p.jetpack_featured_media_url}
+                            />
+                        ))}
+                        <button onClick={this.loadMoreOnClick}> Load More </button>
+                    </Fragment> :
+                    <h3>Loading...</h3>
+                }
             </div>
         );
-
     }
 }
