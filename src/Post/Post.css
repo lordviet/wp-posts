@@ -4,15 +4,13 @@
     flex-direction: column;
     width: 50em;
     text-align: left;
-    /* border: 2px solid red; */
 }
 
 .post>h1 {
-    /* text-align: center; */
+    font-size: 3em;
 }
 
-.post>img {
-    width: 50em;
+.post>picture {
     margin: 2em auto;
 }
 
@@ -26,8 +24,6 @@
 .post>p img {
     height: auto;
     width: 500px;
-    /* width: 50em; */
-    /* display: none; */
     margin: 2em auto;
 }
 
@@ -36,5 +32,10 @@
 .post>p video {
     width: 500px;
     height: 500px;
-    /* display: none; */
+}
+
+
+/* Resize twitter icon in articles */
+.contributor__twitter{
+    width: 100px;
 }

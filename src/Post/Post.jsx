@@ -7,7 +7,14 @@ export default function Post({ title, authorName, date, img, content }) {
         <div className="post">
             <h1>{StringExtended(title).unescapeHTML().s}</h1>
             <small>Written by {authorName} / {new Date(date).toUTCString()}</small>
-            <img src={img} alt="post" />
+            <picture>
+                <source media="(min-width: 327px)"
+                    type="image/jpeg" srcSet={img} />
+                <source type="image/jpeg"
+                    srcSet={img} />
+                <img src={img} alt="post"
+                    width="800" height="530"/>
+            </picture>
             <p dangerouslySetInnerHTML={{ __html: content }}></p>
         </div>
     );
