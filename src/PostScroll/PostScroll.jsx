@@ -41,9 +41,10 @@ export default class PostScroll extends Component {
           dataLength={posts.length}
           next={this.fetchMoreData}
           hasMore={true}
-          loader={<h4>Loading...</h4>}>
+          loader={<h3>Loading...</h3>}>
           {posts.map(p => (
             <Post
+              key={p.id}
               title={p.title.rendered}
               authorName={p._embedded.author[0].name}
               date={p.date}
